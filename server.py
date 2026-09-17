@@ -31,10 +31,21 @@ def seconds_since(iso_timestamp: str) -> str:
     return f"{delta.total_seconds():.0f} seconds ({delta})"
 
 @mcp.tool()
-def my_tool() -> str:
-    """YOURS. Rename it, give it a real purpose, make the model reach
-    something it couldn't before. (Track ideas: docs/TRACKS.md)"""
-    return "Not built yet — that's the point. Edit server.py."
+def my_coffee_order(coffee_shop: str) -> str:
+    """Return my favorite coffee order for a given coffee shop."""
+    orders = {
+        "haraz": "Iced americano",
+        "dunkin": "Iced coffee with vanilla",
+        "arterial": "Iced latte"
+    }
+
+    shop = coffee_shop.lower()
+
+    if shop in orders:
+        return f"My order at {coffee_shop.title()} is: {orders[shop]}"
+
+    return f"I don't have a saved order for {coffee_shop.title()} yet."
 
 if __name__ == "__main__":
-    mcp.run(transport="streamable-http")
+        mcp.run(transport="streamable-http")
+
